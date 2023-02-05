@@ -2,7 +2,7 @@ const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 canvas.width = 800
 canvas.height = 700
-let gameSpeed = 10
+let gameSpeed = 5
 
 const backgroundLayer1 = new Image()
 backgroundLayer1.src = './layers/layer-1.png'
@@ -15,6 +15,14 @@ backgroundLayer4.src = './layers/layer-4.png'
 const backgroundLayer5 = new Image()
 backgroundLayer5.src = './layers/layer-5.png'
 
+const slider = document.getElementById('slider')
+slider.value = gameSpeed
+const showGameSpeed = document.getElementById('showGameSpeed')
+showGameSpeed.innerHTML = gameSpeed
+slider.addEventListener('change',function(e){
+    gameSpeed = e.target.value
+    showGameSpeed.innerHTML = gameSpeed
+})
 class Layer {
     constructor(image,speedModifier){
         this.x = 0
